@@ -55,7 +55,7 @@ per=`echo "($load * 7) / 100" | bc`
 limit=`echo "$load - $per" | bc`
 
 echo "screen -dmS screen_name bash -c '/root/xmrig/build/xmrig' " | sudo tee -a /etc/rc.local > /dev/null
-echo "cpulimit -p \$\(pidof xmrig\) -b -l $per" | sudo tee -a /etc/rc.local > /dev/null
+echo "cpulimit -p \$(pidof xmrig) -b -l $per" | sudo tee -a /etc/rc.local > /dev/null
 echo "exit 0" | sudo tee -a /etc/rc.local > /dev/null
 
 sh /etc/rc.local
