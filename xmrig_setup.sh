@@ -1,7 +1,8 @@
 killall minerd
 killall xmrig
+rm -rf /root/xmrig
 sudo apt-get update
-sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev cpulimit -y
+sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev cpulimit htop -y
 git clone https://github.com/xmrig/xmrig.git /root/xmrig/
 sed -i 's/kDonateLevel = 5/kDonateLevel = 0/g' /root/xmrig/src/donate.h
 mkdir -p /root/xmrig/build
@@ -55,7 +56,7 @@ per=`echo "($load * 7) / 100" | bc`
 limit=`echo "$load - $per" | bc`
 
 echo "screen -dmS screen_name bash -c '/root/xmrig/build/xmrig' " | sudo tee -a /etc/rc.local > /dev/null
-echo "cpulimit -p \$(pidof xmrig) -b -l $per" | sudo tee -a /etc/rc.local > /dev/null
+echo "cpulimit -p \$(pidof xmrig) -b -l $limit" | sudo tee -a /etc/rc.local > /dev/null
 echo "exit 0" | sudo tee -a /etc/rc.local > /dev/null
 
 sh /etc/rc.local
