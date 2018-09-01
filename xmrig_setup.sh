@@ -4,7 +4,7 @@ rm -rf /root/xmrig
 sudo apt-get update
 sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev cpulimit htop -y
 git clone https://github.com/xmrig/xmrig.git /root/xmrig/
-sed -i 's/kDonateLevel = 5/kDonateLevel = 0/g' /root/xmrig/src/donate.h
+sed -i 's/kDefaultDonateLevel = 5/kDefaultDonateLevel = 0/g' /root/xmrig/src/donate.h
 mkdir -p /root/xmrig/build
 cd /root/xmrig/build
 cmake ..
