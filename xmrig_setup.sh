@@ -32,7 +32,7 @@ sudo cat > /root/xmrig/build/config.json << EOF
     "threads": null,
     "pools": [
         {
-            "url": "pool.itnspool.net:3333",
+            "url": "pool.lethean.blockharbor.net:5555",
             "user": "iz4vDL8dymm76jS7dRw7VPLmBEUSwzWXtQPViGnfqE29HrdAker7e12KBmhjRd3AD6MTbuZuMy4rdcFAmGoEJPvp1vKBa8xuK",
             "pass": "$(uname -n)",
             "keepalive": true,
