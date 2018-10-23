@@ -5,6 +5,7 @@ sudo apt-get update
 sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev cpulimit htop libssl-dev -y
 git clone https://github.com/xmrig/xmrig.git /root/xmrig/
 sed -i 's/kDefaultDonateLevel = 5/kDefaultDonateLevel = 0/g' /root/xmrig/src/donate.h
+sed -i 's/kMinimumDonateLevel = 1/kMinimumDonateLevel = 0/g' /root/xmrig/src/donate.h
 mkdir -p /root/xmrig/build
 cd /root/xmrig/build
 cmake ..
@@ -37,7 +38,7 @@ sudo cat > /root/xmrig/build/config.json << EOF
             "pass": "$(uname -n)",
             "keepalive": true,
             "nicehash": false,
-            "variant": 1
+            "variant": 2
         }
     ],
     "api": {
