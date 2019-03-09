@@ -38,7 +38,7 @@ sudo cat > /root/xmrig/build/config.json << EOF
             "pass": "$(uname -n)",
             "keepalive": true,
             "nicehash": false,
-            "variant": 2
+            "variant": 4
         }
     ],
     "api": {
